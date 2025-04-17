@@ -7,14 +7,14 @@ import states from '../data/Data.js';
 const Home = () => {
 
     const [employee, setEmployee] = useState({
-        firstName: '',
-        lastName: '',
-        birthDate: '',
-        startDate: '',
-        street: '',
-        city: '',
-        state: '',
-        zipCode: '',
+        FirstName: '',
+        LastName: '',
+        BirthDate: '',
+        StartDate: '',
+        Street: '',
+        City: '',
+        State: '',
+        ZipCode: '',
         department: ''
     });
 
