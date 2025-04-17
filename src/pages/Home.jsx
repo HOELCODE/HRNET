@@ -25,10 +25,28 @@ const Home = () => {
             [name]: value
         });
     }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('employee', JSON.stringify(employee));
-    }
+
+        const employeeList = JSON.parse(localStorage.getItem('employee')) || [];
+
+        const updatedList = [...employeeList, employee];
+        localStorage.setItem('employee', JSON.stringify(updatedList));
+
+        // (Optionnel) Réinitialiser le formulaire
+        setEmployee({
+            FirstName: '',
+            LastName: '',
+            BirthDate: '',
+            StartDate: '',
+            Street: '',
+            City: '',
+            State: '',
+            ZipCode: '',
+            department: ''
+        });
+    };
 
     return (
         <div className="home-container">
@@ -40,26 +58,26 @@ const Home = () => {
             <div className="htmlForm-container">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="FirstName">First Name</label>
-                    <input type="text" name="FirstName" onChange={handleChange}></input>
+                    <input type="text" name="FirstName" onChange={handleChange} required></input>
 
                     <label htmlFor="LastName">Last Name</label>
-                    <input type="text" name="LastName" onChange={handleChange}></input>
+                    <input type="text" name="LastName" onChange={handleChange} required></input>
 
                     <label htmlFor="BirthDate">Date of Birth</label>
-                    <input type="date" name="BirthDate" onChange={handleChange}></input>
+                    <input type="date" name="BirthDate" onChange={handleChange} required></input>
 
                     <label htmlFor="StartDate">Start Date</label>
-                    <input type="date" name="StartDate" onChange={handleChange}></input>
+                    <input type="date" name="StartDate" onChange={handleChange} required></input>
 
                     <div className="separateur"></div>
 
                     <div className="adress-container">
                         <span>Address</span>
                         <label htmlFor="Street">Street</label>
-                        <input type="text" name="Street" onChange={handleChange}></input>
+                        <input type="text" name="Street" onChange={handleChange} required></input>
 
                         <label htmlFor="City">City</label>
-                        <input type="text" name="City" onChange={handleChange}></input>
+                        <input type="text" name="City" onChange={handleChange} required></input>
 
                         <label htmlFor="State">State</label>
                         <select name="State" id="State" onChange={handleChange}>
@@ -69,13 +87,13 @@ const Home = () => {
                         </select>
 
                         <label htmlFor="ZipCode">Zip Code</label>
-                        <input type="number" name="ZipCode" onChange={handleChange}></input>
+                        <input type="number" name="ZipCode" onChange={handleChange} required></input>
                     </div>
 
                     <div className="separateur"></div>
 
                     <label htmlFor="department">Departement</label>
-                    <select name="department" id="department" onChange={handleChange}>
+                    <select name="department" id="department" onChange={handleChange} required>
                         <option>Sales</option>
                         <option>Marketing</option>
                         <option>Engineering</option>
