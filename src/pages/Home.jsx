@@ -20,33 +20,43 @@ const Home = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEmployee({
-            ...employee,
-            [name]: value
-        });
-    }
-    
+
+        let newValue = value;
+
+        if (name === 'State' && value === '') {
+            newValue = 'Alabama';
+        } else if (name === 'department' && value === '') {
+            newValue = 'Sales';
+        }
+
+        setEmployee((prev) => ({
+            ...prev,
+            [name]: newValue
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const employeeList = JSON.parse(localStorage.getItem('employee')) || [];
-
         const updatedList = [...employeeList, employee];
+        
+        // Gérer si state et department sont vides
+        let i = updatedList.length -1;
+
+        if (updatedList[i].State === '') {
+            updatedList[i].State = 'Alabama';
+        }
+        if (updatedList[i].department === '') {
+            updatedList[i].department = 'Sales';
+        }
+
+        // Pousser les données
         localStorage.setItem('employee', JSON.stringify(updatedList));
 
-        // (Optionnel) Réinitialiser le formulaire
-        setEmployee({
-            FirstName: '',
-            LastName: '',
-            BirthDate: '',
-            StartDate: '',
-            Street: '',
-            City: '',
-            State: '',
-            ZipCode: '',
-            department: ''
-        });
-    };
+    }   
+
+
 
     return (
         <div className="home-container">
@@ -80,9 +90,9 @@ const Home = () => {
                         <input type="text" name="City" onChange={handleChange} required></input>
 
                         <label htmlFor="State">State</label>
-                        <select name="State" id="State" onChange={handleChange}>
+                        <select name="State" id="State" onChange={handleChange} required>
                             {states.map((state, index) => (
-                                <option key={index} value={state.abbreviation}>{state.name}</option>
+                                <option key={index} value={state.name}>{state.name}</option>
                             ))}
                         </select>
 
