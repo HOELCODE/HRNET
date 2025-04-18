@@ -108,6 +108,8 @@ const EmployeeList = () => {
         }
     }, []);
 
+    const entriesNumber = data.length;
+
     const table = useReactTable({
         data,
         columns,
@@ -194,7 +196,7 @@ const EmployeeList = () => {
                     <span>
                         Page{' '}
                         <strong>
-                            {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+                            {table.getState().pagination.pageIndex + 1} to {table.getPageCount()} of {entriesNumber} entries
                         </strong>{' '}
                     </span>
 
