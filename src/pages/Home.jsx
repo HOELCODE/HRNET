@@ -3,7 +3,9 @@ import { useState } from "react";
 import '../css/Home.css';
 
 import states from '../data/Data.js';
-import Modal from "../components/Modal";
+//import Modal from "../components/Modal";
+
+import { Modal } from 'hrnet-modal-hoel';
 
 const Home = () => {
 
