@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
-    "hrnet-modal-hoel": "^2.0.0",
+    "hrnet-modal-hoel": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.5.0"
