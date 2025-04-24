@@ -1,5 +1,3 @@
-//import { Link } from 'react-router-dom';
-
 //const closeModal = () => {
 //    const modal = document.querySelector('.modal');
 //    const page = document.querySelector('.home-container');
@@ -22,7 +20,6 @@
 //                </div>
 //                <div className="modal-content">
 //                    <h2>Employee Created!</h2>
-//                    <Link to="/employee-list" onClick={closeModal}>View update</Link>
 //                </div>
 //            </div>
 //        </>
