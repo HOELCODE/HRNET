@@ -1,5 +1,10 @@
-# 1/ importer le composant via packet npm
-1 : Dans la console entrée les commandes suivantes : 
+# Importer le composant via packet npm
+Dans la console entrée les commandes suivantes : 
+
 - "npm install"
 - "npm install hrnet-modal-hoel" 
-- "npm run dev" 
+
+# Importer le modal dans le code
+Dans le fichier Home.jsx (src -> pages -> Home.jsx) ajouter le code suivant afin d'ajouter le modal :
+
+import { Modal } from 'hrnet-modal-hoel';
