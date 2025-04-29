@@ -9,7 +9,12 @@ import {
 
 import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+
 const Tableau = ({ data }) => {
+    // Récupération des données de l'état Redux
+    const employeeList = useSelector((state) => state.employee.newEmployee);
+    console.log(employeeList);
 
     // Gestion des colonnes et des filtres
     const columns = [
@@ -160,7 +165,7 @@ const Tableau = ({ data }) => {
                     ))}
                 </thead>
                 <tbody>
-                    {table.getRowModel().rows.length === 0 ? (
+                    { employeeList === false ? (
                         <tr>
                             <td colSpan={columns.length} >
                                 No data available in table.

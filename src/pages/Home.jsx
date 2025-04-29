@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import '../css/Home.css';
-
 import states from '../data/Data.js';
-//import Modal from "../components/Modal";
-
 import { Modal } from 'hrnet-modal-hoel';
+import { useDispatch } from "react-redux";
+import { added } from "../redux/employeeSlice.js";
 
 const Home = () => {
 
+    // Redux dispatch
+    const dispatch = useDispatch();
+
+    // Creation d'employee
     const [employee, setEmployee] = useState({
         FirstName: '',
         LastName: '',
@@ -21,6 +24,7 @@ const Home = () => {
         department: ''
     });
 
+    // ajout des informations dans employee
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -66,6 +70,9 @@ const Home = () => {
 
         // Pousser les données
         localStorage.setItem('employee', JSON.stringify(updatedList));
+
+        // Dispatch employee Added
+        dispatch(added());
 
         // Afficher la modale
         showModal();

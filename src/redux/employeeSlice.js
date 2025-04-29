@@ -2,15 +2,14 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 
 const employeeSlice = createSlice({
-    name: 'Newemployee',
+    name: 'EmployeeAdded',
     initialState: {
-        employee: [],
+        newEmployee: false,
     },
     reducers: {
-        addEmployee: (state, action) => {
-            state.employee.push(action.payload);
-        },
-
+        added: (state) => {
+            state.newEmployee = true;
+        }
     }
 })
 
@@ -19,3 +18,5 @@ export const employeeStore = configureStore({
         employee: employeeSlice.reducer,
     }
 })
+
+export const { added } = employeeSlice.actions;
