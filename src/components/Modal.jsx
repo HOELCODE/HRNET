@@ -11,6 +11,16 @@
 //    })
 //}
 
+//const showModal = () => {
+//    const modal = document.querySelector('.modal');
+//    const page = document.querySelector('.home-container');
+
+    //Actions
+//    page.style.filter = "blur(5px)";
+//    modal.style.display = 'block';
+//    modal.classList.add('modal-showed');
+//}
+
 //const modal = () => {
 //    return (
 //        <>
@@ -27,4 +37,4 @@
 
 //}
 
-//export default modal;
+//xport default modal;

@@ -42,12 +42,13 @@ const Home = () => {
         }));
     };
 
+    // Affichage de la modale
     const showModal = () => {
         const modal = document.querySelector('.modal');
-        const page = document.querySelector('.home-container');
+        const page = document.querySelector('.modal-container');
 
         //Actions
-        page.style.filter = "blur(5px)";
+        page.style.display = 'block';
         modal.style.display = 'block';
         modal.classList.add('modal-showed');
     }
@@ -76,7 +77,6 @@ const Home = () => {
 
         // Afficher la modale
         showModal();
-
     }
 
 
