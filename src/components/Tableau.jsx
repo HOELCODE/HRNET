@@ -165,7 +165,7 @@ const Tableau = ({ data }) => {
                     ))}
                 </thead>
                 <tbody>
-                    { employeeList === false ? (
+                    {employeeList === false ? (
                         <tr>
                             <td colSpan={columns.length} >
                                 No data available in table.
@@ -187,12 +187,22 @@ const Tableau = ({ data }) => {
 
             {/* Pagination */}
             <div className='pagination-container'>
-                <span>
-                    Page{' '}
-                    <strong>
-                        {table.getState().pagination.pageIndex + 1} to {table.getPageCount()} of {entriesNumber} entries
-                    </strong>{' '}
-                </span>
+                {employeeList === false ? (
+
+                    <span>
+                        Page{' '}
+                        <strong>
+                            0 of 0 of 0 entries
+                        </strong>{' '}
+                    </span>
+                ) : (
+                    <span>
+                        Page{' '}
+                        <strong>
+                            {table.getState().pagination.pageIndex + 1} to {table.getPageCount()} of {entriesNumber} entries
+                        </strong>{' '}
+                    </span>
+                )}
 
                 <div className='button-container'>
                     <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
