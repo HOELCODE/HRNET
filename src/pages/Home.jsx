@@ -126,7 +126,7 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <Modal />
+            <Modal text="Employee created" />
         </>
     );
 }
