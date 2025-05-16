@@ -14,8 +14,8 @@ import { useSelector } from 'react-redux';
 const Tableau = ({ data }) => {
     // Récupération des données de l'état Redux
     const employeeList = useSelector((state) => state.employee.newEmployee);
-    console.log(employeeList);
 
+    
     // Gestion des colonnes et des filtres
     const columns = [
         {

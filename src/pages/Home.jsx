@@ -11,6 +11,9 @@ const Home = () => {
     // Redux dispatch
     const dispatch = useDispatch();
 
+    // Creation tableau de departements
+    const departements = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
+
     // Creation d'employee
     const [employee, setEmployee] = useState({
         FirstName: '',
@@ -19,22 +22,15 @@ const Home = () => {
         StartDate: '',
         Street: '',
         City: '',
-        State: '',
+        State: states[0].name,
         ZipCode: '',
-        department: ''
+        department: departements[0]
     });
 
     // ajout des informations dans employee
     const handleChange = (e) => {
         const { name, value } = e.target;
-
         let newValue = value;
-
-        if (name === 'State' && value === '') {
-            newValue = 'Alabama';
-        } else if (name === 'department' && value === '') {
-            newValue = 'Sales';
-        }
 
         setEmployee((prev) => ({
             ...prev,
@@ -58,16 +54,6 @@ const Home = () => {
 
         const employeeList = JSON.parse(localStorage.getItem('employee')) || [];
         const updatedList = [...employeeList, employee];
-
-        // Gérer si state et department sont vides
-        let i = updatedList.length - 1;
-
-        if (updatedList[i].State === '') {
-            updatedList[i].State = 'Alabama';
-        }
-        if (updatedList[i].department === '') {
-            updatedList[i].department = 'Sales';
-        }
 
         // Pousser les données
         localStorage.setItem('employee', JSON.stringify(updatedList));
@@ -128,11 +114,9 @@ const Home = () => {
 
                         <label htmlFor="department">Departement</label>
                         <select name="department" id="department" onChange={handleChange} required>
-                            <option>Sales</option>
-                            <option>Marketing</option>
-                            <option>Engineering</option>
-                            <option>Human Resources</option>
-                            <option>Legal</option>
+                            {departements.map((departement, index) => (
+                                <option key={index} value={departement}>{departement}</option>
+                            ))}
                         </select>
 
 
